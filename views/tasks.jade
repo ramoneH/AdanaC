@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1.
+        Task List
+    a(href="/addtasks") ADD Tasks
+    ul
+        for task, i in tasks
+            h3= task.task
+            li= task.desc
+            li= task.comp
+            li= task.ass
+        else 
+            li sorry no tasks
+    a(href="/") Home 
