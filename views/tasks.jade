@@ -3,13 +3,32 @@ extends layout
 block content
     h1.
         Task List
-    a(href="/addtasks") ADD Tasks
-    ul
-        for task, i in tasks
-            h3= task.task
-            li= task.desc
-            li= task.comp
-            li= task.ass
-        else 
-            li sorry no tasks
-    a(href="/") Home 
+    br
+    button.btn.btn-primary() 
+      a(style="color: #ffffff" href="/addtasks") ADD NEW TASK
+    br
+    br
+    table.table.table-bordered.table-light
+        thead.thead-dark
+            tr
+                th(scope='col') Task
+                th(scope='col') Description
+                th(scope='col') Completed
+                th(scope='col') Assigned
+        tbody
+            for task, i in tasks
+                tr
+                  td= task.task
+                  td= task.desc
+                  td= task.comp
+                  td= task.ass
+            else
+                tr 
+                  td sorry no tasks
+
+    
+
+    button.btn.btn-primary() 
+      a(style="color: #ffffff" href="/") HOME
+
+    

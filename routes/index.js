@@ -6,7 +6,11 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Task Tracker App' });
 });
 
-/* Get Tasks Page */
+/* GET test page. */
+router.get('/test', function(req, res, next) {
+  res.render('test', { title: 'Task Tracker App' });
+});
+// /* Get Tasks Page */
 // router.get('/tasks', function(req, res) {
 //   res.render('tasks', { title: 'Tasks!' });
 // });
@@ -36,6 +40,9 @@ router.post('/addtask', function(req, res) {
     // Get our form values. These rely on the "name" attributes
     var task = req.body.taskname;
     var desc = req.body.taskdesc;
+    var comp = req.body.taskcomp;
+    var ass = req.body.taskass;
+
 
     // Set our collection
     var collection = db.get('taskcollection');
@@ -43,7 +50,9 @@ router.post('/addtask', function(req, res) {
     // Submit to the DB
     collection.insert({
         "task" : task,
-        "desc" : desc
+        "desc" : desc,
+        "comp" : comp,
+        "ass" : ass
     }, function (err, doc) {
         if (err) {
             // If it failed, return error
@@ -55,4 +64,7 @@ router.post('/addtask', function(req, res) {
         }
     });
 });
+function addnew() {
+  window.location.href = '/addtasks';
+}
 module.exports = router;
