@@ -5,7 +5,7 @@ block content
         Task List
     br
     button.btn.btn-primary() 
-      a(style="color: #ffffff" href="/addtasks") ADD NEW TASK
+        a(style="color: #ffffff" href="/addtasks") ADD NEW TASK
     br
     br
     table.table.table-bordered.table-light
@@ -15,20 +15,24 @@ block content
                 th(scope='col') Description
                 th(scope='col') Completed
                 th(scope='col') Assigned
+                th(scope='col') Delete ?
         tbody
             for task, i in tasks
                 tr
-                  td= task.task
-                  td= task.desc
-                  td= task.comp
-                  td= task.ass
+                    td
+                        a(id="taskID" value="task._id" href="/update")= task.task 
+                    td= task.desc
+                    td= task._id
+                    td= task.ass
+                    td
+                        button.btn.btn-primary() 
+                            a(style="color: #ffffff" href="/addtasks") Delete TASK
             else
                 tr 
-                  td sorry no tasks
+                    td sorry no tasks
 
-    
+
 
     button.btn.btn-primary() 
-      a(style="color: #ffffff" href="/") HOME
+        a(style="color: #ffffff" href="/") HOME
 
-    
