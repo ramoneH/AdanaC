@@ -46,13 +46,19 @@ router.put('/updateTask', function(req, res) {
     // Set our collection
     var collection = db.get('taskcollection');
     // Get our form values. These rely on the "name" attributes
+    console.log(req.body);
 
     var task = req.body.taskname;
     var desc = req.body.taskdesc;
     var comp = req.body.taskcomp;
     var ass = req.body.taskass;
     var id = req.body._id;
+    console.log(id);
     collection.update({"_id": objectID(id)},{
+        "task" : task,
+        "desc" : desc,
+        "comp" : comp,
+        "ass" : ass
 
     },function(err, doc) {
         

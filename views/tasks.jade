@@ -22,11 +22,11 @@ block content
                     td
                         a(id="taskID" value="task._id" href="/update")= task.task 
                     td= task.desc
-                    td= task._id
+                    td= task.comp
                     td= task.ass
                     td
-                        button.btn.btn-primary() 
-                            a(style="color: #ffffff" href="/addtasks") Delete TASK
+                        button.btn.btn-primary()
+                            a(style="color: #ffffff" value="task._id" href="/task/:task._id") Delete TASK
             else
                 tr 
                     td sorry no tasks

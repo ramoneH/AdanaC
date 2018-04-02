@@ -6,14 +6,15 @@ block content
     .container
       .col-md
         .form-area
-          form#formUPDATETasks(name="update",method="put",action="/updateTask")
+          form#formUPDATETasks(name="update",method="put",action="/task/:taskId")
             br(style='clear:both')
             h3(style='margin-bottom: 25px; text-align: center;') Task Form
             select(name="_id")
                 each task, i in tasks
                     option(value=i._id) #{task.task}
+                    console.log()
             .form-group
-              input#inputTaskName.form-control(type='text', name='taskname', placeholder='#{my_var}', required='')
+              input#inputTaskName.form-control(type='text', name='taskname', placeholder='', required='')
             .form-group
               input#inputTaskDesc.form-control(type='text', name='taskdesc', placeholder='Task Desc', required='')
             .form-group
