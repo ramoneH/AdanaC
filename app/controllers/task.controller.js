@@ -1,5 +1,8 @@
 var Task = require('../models/task.model.js');
 
+exports.addOne = function(req, res) {
+    res.render('addtasks');
+};
 exports.create = function(req, res) {
     // Create and Save a new Task
     if(!req.body.taskname) {
@@ -65,7 +68,7 @@ exports.findOne = function(req, res) {
             return res.status(404).send({message: "Task not found with id " + req.params.taskID});            
         }
 
-        res.send(task);
+        res.json([task]);
     });
 };
 

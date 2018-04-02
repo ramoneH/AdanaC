@@ -20,13 +20,13 @@ block content
             for task, i in tasks
                 tr
                     td
-                        a(id="taskID" value="task._id" href="/update")= task.task 
+                        a(for taskid, i in tasks, href="/task/{:_id}")= task.task 
                     td= task.desc
                     td= task.comp
                     td= task.ass
                     td
                         button.btn.btn-primary()
-                            a(style="color: #ffffff" value="task._id" href="/task/:task._id") Delete TASK
+                            a(style="color: #ffffff" href="/deletetask/:_id") Delete TASK
             else
                 tr 
                     td sorry no tasks
@@ -36,3 +36,4 @@ block content
     button.btn.btn-primary() 
         a(style="color: #ffffff" href="/") HOME
 
+// a(for tasked, p in tasks', [routerlink]="['/product-details', product.id]")
