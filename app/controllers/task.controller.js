@@ -3,6 +3,9 @@ var Task = require('../models/task.model.js');
 exports.addOne = function(req, res) {
     res.render('addtasks');
 };
+exports.taskparam = function(req, res) {
+    res.send(req.params._id);
+};
 exports.create = function(req, res) {
     // Create and Save a new Task
     if(!req.body.taskname) {
@@ -23,7 +26,40 @@ exports.create = function(req, res) {
         } else {
             
             res.send(task);
-            res.render('task');
+            res.render('tasks');
+        }
+    });
+};
+
+exports.createATask = function(req, res) {
+    // Create and Save a new Task
+    if(!req.body.taskname) {
+        return res.status(400).send({message: "Task can not be empty"});
+    }
+
+    var task = new Task({
+        task: req.body.taskname,
+        ass: req.body.taskass,
+        desc: req.body.taskdesc,
+        comp: req.body.taskcomp
+    });
+
+    task.save(function(err, task) {
+        if(err) {
+            console.log(err);
+            res.status(500).send({message: "Some error occurred while creating the Task."});
+        } else {
+            Task.find(function(err, tasks){
+                if(err) {
+                    console.log(err);
+                    res.status(500).send({message: "Some error occurred while retrieving Tasks."});
+                } else {
+                    //res.send(tasks);
+                    res.render('tasks', {
+                        "tasks" : tasks
+                    });
+                }
+            });
         }
     });
 };
@@ -61,11 +97,11 @@ exports.findOne = function(req, res) {
             if(err.kind === 'ObjectId') {
                 return res.status(404).send({message: "Task not found with id " + req.params._id});                
             }
-            return res.status(500).send({message: "Error retrieving task with id " + req.params.taskID});
+            return res.status(500).send({message: "Error retrieving task with id " + req.params._id});
         } 
 
         if(!task) {
-            return res.status(404).send({message: "Task not found with id " + req.params.taskID});            
+            return res.status(404).send({message: "Task not found with id " + req.params._id});            
         }
 
         res.json([task]);

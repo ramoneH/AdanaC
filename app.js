@@ -40,6 +40,7 @@ mongoose.connection.once('open', function() {
 app.get('/', function(req, res){
   res.render('index', { title: 'Task Tracker App' });
 });
+
 // Require Task routes
 require('./app/routes/task.routes.js')(app);
 
