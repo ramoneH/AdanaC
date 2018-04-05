@@ -103,8 +103,9 @@ exports.findOne = function(req, res) {
         if(!task) {
             return res.status(404).send({message: "Task not found with id " + req.params._id});            
         }
-
-        res.json([task]);
+            res.json([task]);
+        
+        
     });
 };
 
@@ -153,6 +154,6 @@ exports.delete = function(req, res) {
             return res.status(404).send({message: "Task not found with id " + req.params._id});
         }
 
-        res.send({message: "Task deleted successfully!"});
+        res.render('success', { message: "Task deleted successfully!" });
     });
 };
