@@ -123,7 +123,7 @@ exports.update = function(req, res) {
             return res.status(500).send({message: "Error finding task with id " + req.params._id});
         }
 
-       console.log(task);
+       console.log(task); 
        console.log("updated task body", req.body);
        console.log("updated task", req.body.taskname);
        console.log("updated task", req.body.taskass);
