@@ -1,8 +1,10 @@
 extends layout
 
 block content
-  h1= message
-  p Go Back to #{title}
-  
-  button.btn.btn-primary() 
-      a(style="color: #ffffff" href="/tasks") TASK LIST
+  .container-fluid
+    .alert-success
+      h1= message
+      p Go Back to #{title}
+      
+      button.btn.btn-primary() 
+          a(style="color: #ffffff" href="/tasks") TASK LIST

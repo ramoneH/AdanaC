@@ -104,38 +104,40 @@ exports.findOne = function(req, res) {
             return res.status(404).send({message: "Task not found with id " + req.params._id});            
         }
             // res.json([task]);
-            res.render('update', {'thisTask': [task] 
+            res.render('update', {
+                "thisTask" : task 
         });
     });
 };
 
 exports.update = function(req, res) {
     // Update a task identified by the taskID in the request
-    Task.findById(req.params.taskId, function(err, task) {
+    Task.findById({_id: req.params._id}, function(err, task) {
         if(err) {
             console.log(err);
             if(err.kind === 'ObjectId') {
-                return res.status(404).send({message: "Task not found with id " + req.params.taskId});                
+                return res.status(404).send({message: "Task not found with id " + req.params._id});                
             }
-            return res.status(500).send({message: "Error finding task with id " + req.params.taskID});
+            return res.status(500).send({message: "Error finding task with id " + req.params._id});
         }
 
         if(!task) {
-            return res.status(404).send({message: "Task not found with id " + req.params.taskID});            
+            return res.status(404).send({message: "Task not found with id " + req.params._id});            
         }
-
-        task.taskname = req.body.taskname;
-        ass.taskass = req.body.taskass;
-        desc.taskdesc = req.body.taskdesc;
-        comp.taskcomp = req.body.taskcomp;
-
-        task.save(function(err, data){
-            if(err) {
-                res.status(500).send({message: "Could not update task with id " + req.params.taskID});
-            } else {
-                res.send(data);
-            }
+        task = Task ({
+            task: req.body.taskname,
+            ass: req.body.taskass,
+            desc: req.body.taskdesc,
+            comp: req.body.taskcomp,
         });
+        task.update({task: req.body.taskname},{ass: req.body.taskass},{multi: true});
+        /* task.update(function(err, task){
+            if(err) {
+                res.status(500).send({message: "Could not update task with id " + req.params._id});
+            } else {
+                res.render('success', { message: "Task Updated Successfully!" });
+            }
+        }); */
     });
 };
 

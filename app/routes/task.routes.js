@@ -14,7 +14,7 @@ module.exports = function(app) {
     app.get('/tasks/:_id', task.findOne);
 
     // Update a Task with TaskId
-    app.put('/task/:_id', task.update);
+    app.get('/updatetask/:_id', task.update);
 
     // Delete a Task with TaskId
     app.get('/deletetask/:_id', task.delete);

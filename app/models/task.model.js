@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var getID = require('mongoDB').ObjectID;
 
 var TaskSchema = mongoose.Schema({
-    task: String, 
+    task: {type: String, default: 'NEW TASK'},
     desc: {type: String, default: 'None at the moment'},
     comp: {type: Boolean, default: false},
     ass: {type: Boolean, default: true }
