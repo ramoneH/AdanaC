@@ -103,9 +103,9 @@ exports.findOne = function(req, res) {
         if(!task) {
             return res.status(404).send({message: "Task not found with id " + req.params._id});            
         }
-            res.json([task]);
-        
-        
+            // res.json([task]);
+            res.render('update', {'thisTask': [task] 
+        });
     });
 };
 

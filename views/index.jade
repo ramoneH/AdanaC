@@ -1,9 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  
+  .col-lg-5
+    div.container-fluid
+      .alert.alert-warning
+        h1 - The One n Only Task Tracker -
+        .alert.alert-info
+          h1= title
+          p Welcome to #{title}
+        
 
-  button.btn.btn-primary() 
-      a(style="color: #ffffff" href="/tasks") TASK LIST
+          button.btn.btn-primary() 
+              a(style="color: #ffffff" href="/tasks") TASK LIST

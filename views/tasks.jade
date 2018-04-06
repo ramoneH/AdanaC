@@ -1,39 +1,42 @@
 extends layout
 
 block content
-    h1.
-        Task List
-    br
-    button.btn.btn-primary() 
-        a(style="color: #ffffff" href="/addtasks") ADD NEW TASK
-    br
-    br
-    table.table.table-bordered.table-light
-        thead.thead-dark
-            tr
-                th(scope='col') Task
-                th(scope='col') Description
-                th(scope='col') Completed
-                th(scope='col') Assigned
-                th(scope='col') Delete ?
-        tbody
-            for task, i in tasks
-                tr
-                    td
-                        a(for task, i in tasks, href="/tasks/#{task._id}")= task.task 
-                    td= task.desc
-                    td= task.comp
-                    td= task.ass
-                    td
-                        form(method="delete", action="/deletetask/#{task._id}")
-                            button.btn.btn-primary(type="submit") Delete Me
-            else
-                tr 
-                    td sorry no tasks
+    div.container-fluid
+        .alert.alert-info
+            h1
+                Task List
+            br
+            button.btn.btn-primary() 
+                a(style="color: #ffffff" href="/addtasks") ADD NEW TASK
+            br
+            br
+            .alert.alert-warning
+                table.table.table-bordered.table-light
+                    thead.thead-dark
+                        tr
+                            th(scope='col') Task
+                            th(scope='col') Description
+                            th(scope='col') Completed
+                            th(scope='col') Assigned
+                            th(scope='col') Delete ?
+                    tbody
+                        for task, i in tasks
+                            tr
+                                td
+                                    a(for task, i in tasks, href="/tasks/#{task._id}")= task.task 
+                                td= task.desc
+                                td= task.comp
+                                td= task.ass
+                                td
+                                    form(method="delete", action="/deletetask/#{task._id}")
+                                        button.btn.btn-primary(type="submit") Delete Me
+                        else
+                            tr 
+                                td sorry no tasks
 
 
 
-    button.btn.btn-primary() 
-        a(style="color: #ffffff" href="/") HOME
+            button.btn.btn-primary() 
+                a(style="color: #ffffff" href="/") HOME
 
-// a(for tasked, p in tasks', [routerlink]="['/product-details', product.id]")
+        // a(for tasked, p in tasks', [routerlink]="['/product-details', product.id]")

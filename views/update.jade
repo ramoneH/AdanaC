@@ -1,5 +1,5 @@
 extends layout
-my_var = task
+
 block content
     h1(style='text-align: center')= title
     
@@ -9,18 +9,14 @@ block content
           form#formUPDATETasks(name="update",method="put",action="/task/:taskId")
             br(style='clear:both')
             h3(style='margin-bottom: 25px; text-align: center;') Task Form
-            select(name="_id")
-                each task, i in tasks
-                    option(value=i._id) #{task.task}
-                    console.log()
-            .form-group
+            for task, i in thisTask
               input#inputTaskName.form-control(type='text', name='taskname', placeholder='', required='')
-            .form-group
-              input#inputTaskDesc.form-control(type='text', name='taskdesc', placeholder='Task Desc', required='')
-            .form-group
-              input#inputTaskCom.form-control(type='text', name='taskcomp', placeholder='Completed ?', required='')
-            .form-group
-              input#subject.form-control(type='text', name='taskass', placeholder='Assigned ?', required='')
-            button#submit.btn.btn-primary.pull-right(type='submit', name='update') UPDATE TASK
-            button.btn.btn-primary.pull-left() 
-                a(style="color: #ffffff" href="/tasks") CANCEL
+              .form-group
+                input#inputTaskDesc.form-control(type='text', name='taskdesc', placeholder='Task Desc', required='')
+              .form-group
+                input#inputTaskCom.form-control(type='text', name='taskcomp', placeholder='Completed ?', required='')
+              .form-group
+                input#subject.form-control(type='text', name='taskass', placeholder='Assigned ?', required='')
+              button#submit.btn.btn-primary.pull-right(type='submit', name='update') UPDATE TASK
+              button.btn.btn-primary.pull-left() 
+                  a(style="color: #ffffff" href="/tasks") CANCEL
