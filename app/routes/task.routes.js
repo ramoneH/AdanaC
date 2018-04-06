@@ -7,6 +7,7 @@ module.exports = function(app) {
     app.post('/task', task.create);
 
     // Retrieve all task
+    //TODO remove this
     app.get('/task', task.findAll);
     app.get('/tasks', task.findAllTasks);
     
@@ -14,7 +15,7 @@ module.exports = function(app) {
     app.get('/tasks/:_id', task.findOne);
 
     // Update a Task with TaskId
-    app.get('/updatetask/:_id', task.update);
+    app.put('/updatetask', task.update);
 
     // Delete a Task with TaskId
     app.get('/deletetask/:_id', task.delete);

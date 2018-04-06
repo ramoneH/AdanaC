@@ -1,21 +1,22 @@
 extends layout
 
 block content
-    .col-md-6
-      .container-fluid.alert.alert-warning
-        .form-area
-          form#formUPDATETasks(name="update",method="put",action="/updatetask/#{thisTask._id}")
-            br(style='clear:both')
-            h3(style='margin-bottom: 25px; text-align: center;') Update Task Form
-              div
-                .form-group
-                  input#inputTaskName.form-control(type='text', name='taskname', value='#{thisTask.task}', required='')
-                .form-group
-                  input#inputTaskDesc.form-control(type='text', name='taskdesc', placeholder='#{thisTask.desc}', required='')
-                .form-group
-                  input#inputTaskCom.form-control(type='text', name='taskcomp', placeholder='#{thisTask.comp}', required='')
-                .form-group
-                  input#subject.form-control(type='text', name='taskass', placeholder='#{thisTask.ass}', required='')
-                button#submit.btn.btn-primary.pull-right(type='submit', name='update') UPDATE TASK
-                button.btn.btn-primary.pull-left() 
-                    a(style="color: #ffffff" href="/tasks") CANCEL
+  div.container-fluid.col-md-6
+    .alert.alert-info
+      h1(style='text-align: center')= title     
+      .container-fluid
+          .form-area.alert-warning
+            form#formAddTasks(name="updateTask",method="put",action="/updateTask")
+              br(style='clear:both')
+              h3(style='margin-bottom: 25px; text-align: center;') Task Form
+              .form-group
+                input#inputTaskName.form-control(type='text', name='taskname', placeholder='Task Name', required='')
+              .form-group
+                input#inputTaskDesc.form-control(type='text', name='taskdesc', placeholder='Task Desc', required='')
+              .form-group
+                input#inputTaskCom.form-control(type='text', name='taskcomp', placeholder='Completed ?', required='')
+              .form-group
+                input#subject.form-control(type='text', name='taskass', placeholder='Assigned ?', required='')
+              button#submit.btn.btn-primary.pull-right(type='submit', name='updateTask') Update Task
+              button.btn.btn-primary.pull-left() 
+                  a(style="color: #ffffff" href="/") CANCEL

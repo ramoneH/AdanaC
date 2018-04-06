@@ -77,6 +77,8 @@ exports.findAllTasks = function(req, res) {
         }
     });
 };
+
+//TODO remove this
 exports.findAll = function(req, res) {
     // Retrieve and return all notes from the database.
     Task.find(function(err, tasks){
@@ -121,23 +123,13 @@ exports.update = function(req, res) {
             return res.status(500).send({message: "Error finding task with id " + req.params._id});
         }
 
-        if(!task) {
-            return res.status(404).send({message: "Task not found with id " + req.params._id});            
-        }
-        task = Task ({
-            task: req.body.taskname,
-            ass: req.body.taskass,
-            desc: req.body.taskdesc,
-            comp: req.body.taskcomp,
-        });
-        task.update({task: req.body.taskname},{ass: req.body.taskass},{multi: true});
-        /* task.update(function(err, task){
-            if(err) {
-                res.status(500).send({message: "Could not update task with id " + req.params._id});
-            } else {
-                res.render('success', { message: "Task Updated Successfully!" });
-            }
-        }); */
+       console.log(task);
+       console.log("updated task body", req.body);
+       console.log("updated task", req.body.taskname);
+       console.log("updated task", req.body.taskass);
+       console.log("updated task", req.body.taskdesc);
+       console.log("updated task", req.body.taskcomp);
+
     });
 };
 
