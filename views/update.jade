@@ -6,17 +6,17 @@ block content
       h1(style='text-align: center')= title     
       .container-fluid
           .form-area.alert-warning
-            form#formAddTasks(name="updateTask",method="put",action="/updateTask")
+            form#formAddTasks(name="updateTask",method="post",action="/updatetask")
               br(style='clear:both')
               h3(style='margin-bottom: 25px; text-align: center;') Task Form
               .form-group
-                input#inputTaskName.form-control(type='text', name='taskname', placeholder='Task Name', required='')
+                input#inputTaskId.form-control(type='text', name='_id', value='#{thisTask._id}', required='')
               .form-group
                 input#inputTaskDesc.form-control(type='text', name='taskdesc', placeholder='Task Desc', required='')
               .form-group
                 input#inputTaskCom.form-control(type='text', name='taskcomp', placeholder='Completed ?', required='')
               .form-group
                 input#subject.form-control(type='text', name='taskass', placeholder='Assigned ?', required='')
-              button#submit.btn.btn-primary.pull-right(type='submit', name='updateTask') Update Task
+              button#submit.btn.btn-primary.pull-right(type='submit', name='updatetask') Update Task
               button.btn.btn-primary.pull-left() 
                   a(style="color: #ffffff" href="/") CANCEL

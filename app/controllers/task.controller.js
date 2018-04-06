@@ -114,7 +114,7 @@ exports.findOne = function(req, res) {
 
 exports.update = function(req, res) {
     // Update a task identified by the taskID in the request
-    Task.findById({_id: req.params._id}, function(err, task) {
+    Task.findById({_id: req.body._id}, function(err, task) {
         if(err) {
             console.log(err);
             if(err.kind === 'ObjectId') {
