@@ -5,6 +5,12 @@ var path = require('path');
 
 var app = express();
 
+// parse requests of content-type - application/json 
+app.use(bodyParser.json());
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -12,12 +18,7 @@ app.set('view engine', 'jade');
 // Make our Routes Accessible to our app
 //app.use('/', routes);
 // create express app
-// parse requests of content-type - application/json 
-app.use(bodyParser.json());
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+
 // Configuring the database
 var dbConfig = require('./config/database.config.js');
 var mongoose = require('mongoose');

@@ -7,7 +7,7 @@ block content
       .container-fluid
 
           .form-area.alert-warning
-            form#formUpdateTasks(name="updateTask",method="",action="/updateTask/#{thisTask._id}")
+            form#formUpdateTasks(name="updateTask",method="post",action="/updateTask/#{thisTask._id}")
               br(style='clear:both')
               h3(style='margin-bottom: 25px; text-align: center;') Update Task Form
               .form-group
