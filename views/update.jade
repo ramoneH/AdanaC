@@ -5,18 +5,21 @@ block content
     .alert.alert-info
       h1(style='text-align: center')= title     
       .container-fluid
+
           .form-area.alert-warning
-            form#formAddTasks(name="updateTask",method="put",action="/updateTask")
+            form#formUpdateTasks(name="updateTask",method="",action="/updateTask/#{thisTask._id}")
               br(style='clear:both')
-              h3(style='margin-bottom: 25px; text-align: center;') Task Form
+              h3(style='margin-bottom: 25px; text-align: center;') Update Task Form
               .form-group
-                input#inputTaskName.form-control(type='text', name='taskname', placeholder='Task Name', required='')
+                input#inputTaskId.form-control(hidden='true', name='_id', value='#{thisTask._id}', disabled="true")
               .form-group
-                input#inputTaskDesc.form-control(type='text', name='taskdesc', placeholder='Task Desc', required='')
+                input#inputTaskName.form-control(type='text', name='task', placeholder='#{thisTask.task}', required='')
               .form-group
-                input#inputTaskCom.form-control(type='text', name='taskcomp', placeholder='Completed ?', required='')
+                input#inputTaskDesc.form-control(type='text', name='desc', placeholder='#{thisTask.desc}', required='')
               .form-group
-                input#subject.form-control(type='text', name='taskass', placeholder='Assigned ?', required='')
+                input#inputTaskCom.form-control(type='text', name='comp', placeholder='#{thisTask.comp}', required='')
+              .form-group
+                input#inputTaskAss.form-control(type='text', name='ass', placeholder='#{thisTask.ass}', required='')
               button#submit.btn.btn-primary.pull-right(type='submit', name='updateTask') Update Task
               button.btn.btn-primary.pull-left() 
                   a(style="color: #ffffff" href="/") CANCEL

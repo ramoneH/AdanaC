@@ -114,7 +114,12 @@ exports.findOne = function(req, res) {
 
 exports.update = function(req, res) {
     // Update a task identified by the taskID in the request
-    Task.findById({_id: req.params._id}, function(err, task) {
+    Task.findById(req.params._id, function(err, task) {
+        task.task = req.body.task;
+        task.desc = req.body.desc;
+        task.comp = req.body.comp;
+        task.ass = req.body.ass;
+
         if(err) {
             console.log(err);
             if(err.kind === 'ObjectId') {
@@ -122,13 +127,26 @@ exports.update = function(req, res) {
             }
             return res.status(500).send({message: "Error finding task with id " + req.params._id});
         }
-
        console.log(task);
-       console.log("updated task body", req.body);
-       console.log("updated task", req.body.taskname);
-       console.log("updated task", req.body.taskass);
-       console.log("updated task", req.body.taskdesc);
-       console.log("updated task", req.body.taskcomp);
+       console.log("updated task", task.task);
+       console.log("updated task", req.body.ass);
+       console.log("updated task", req.body.task);
+       console.log("updated task", task._id);
+       task.get('desc');
+       
+           
+        
+       console.log(task);
+       console.log("This is what we want !!!", task);
+
+       task.save(function(err, task) {
+        if(err) {
+            console.log(err);
+            res.status(500).send({message: "Some error occurred while creating the Task."});
+        } else {
+            res.render('success', { message: "Task Updated successfully!" });
+        }
+    });
 
     });
 };

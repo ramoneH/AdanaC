@@ -12,13 +12,12 @@ app.set('view engine', 'jade');
 // Make our Routes Accessible to our app
 //app.use('/', routes);
 // create express app
- 
-
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
- 
-// parse requests of content-type - application/json
+// parse requests of content-type - application/json 
 app.use(bodyParser.json());
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 // Configuring the database
 var dbConfig = require('./config/database.config.js');
 var mongoose = require('mongoose');
@@ -26,7 +25,7 @@ var db = dbConfig.url;
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect(dbConfig.url);
+mongoose.connect(db);
 
 mongoose.connection.on('error', function() {
     console.log('Could not connect to the database. Exiting now...');
