@@ -9,7 +9,7 @@ module.exports = function(app) {
     // Retrieve all task
     //TODO remove this
     app.get('/task', task.findAll);
-    app.get('/tasks', task.findAllTasks);
+    app.get('/tasks', task.findAllTasks); 
     
     // Retrieve a single Task with TaskId
     app.get('/tasks/:_id', task.findOne);
