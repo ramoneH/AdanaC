@@ -1,14 +1,19 @@
 extends layout
 
 block content
+  // Set Column Width For Page
   .col-lg-5
+    // CSS to Improve Look And Feel
     div.container-fluid
       .alert.alert-warning
         h1 - The One n Only Task Tracker -
         .alert.alert-info
+          // Display Title Set In The Route
           h1= title
+          // Welcome Message that Also Displays Title That Was Set
           p Welcome to #{title}
         
 
-          button.btn.btn-primary() 
-              a(style="color: #ffffff" href="/tasks") TASK LIST
+          // Add Button To Navigate To The List Of Tasks
+          form(method="get", action="/tasks")
+              button.btn.btn-primary(type="submit") COMPLETE LIST OF TASKS

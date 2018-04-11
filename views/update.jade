@@ -5,21 +5,28 @@ block content
     .alert.alert-info
       h1(style='text-align: center')= title     
       .container-fluid
-
+          // Created Form And Styled With CSS
           .form-area.alert-warning
             form#formUpdateTasks(name="updateTask",method="post",action="/updateTask/#{thisTask._id}")
+              // Puts Space Between Content
               br(style='clear:both')
               h3(style='margin-bottom: 25px; text-align: center;') Update Task Form
               .form-group
+                // set input to show id from task - Views Task ID
                 input#inputTaskId.form-control(hidden='true', name='_id', value='#{thisTask._id}', disabled="true")
               .form-group
+                // set input to take input from user - Sets Task Name
                 input#inputTaskName.form-control(type='text', name='task', placeholder='#{thisTask.task}', required='')
               .form-group
+                // set input to take input from user - Sets Task Desc
                 input#inputTaskDesc.form-control(type='text', name='desc', placeholder='#{thisTask.desc}', required='')
               .form-group
+                // set input to take input from user - Sets Task Completed 
                 input#inputTaskCom.form-control(type='text', name='comp', placeholder='#{thisTask.comp}', required='')
               .form-group
+                // set input to take input from user - Sets Task Assigned
                 input#inputTaskAss.form-control(type='text', name='ass', placeholder='#{thisTask.ass}', required='')
               button#submit.btn.btn-primary.pull-right(type='submit', name='updateTask') Update Task
-              button.btn.btn-primary.pull-left() 
-                  a(style="color: #ffffff" href="/") CANCEL 
+              
+          form(method="get", action="/tasks")
+            button.btn.btn-primary() CANCEL & GO BACK

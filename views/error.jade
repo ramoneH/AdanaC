@@ -1,7 +1,12 @@
+// Gets All Behaviors And Elements Of layout.jade file
 extends layout
 
 block content
+  // displays error message that was sent to this page 
+  // can be multiple errors 
   h1= message
+  // Gives you the Status of Error 
+  // 404 or 200 or 500 etc.
   h2= error.status
   pre #{error.stack}
 

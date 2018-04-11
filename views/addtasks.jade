@@ -1,24 +1,31 @@
 extends layout
 
 block content
+  // CSS to Improve Look And Feel
   div.container-fluid.col-md-6
     .alert.alert-info
       h1(style='text-align: center')= title
-      
+      // Set Container to Hold Form
       .container-fluid
-        
+          // Created Form And Styled With CSS
           .form-area.alert-warning
             form#formAddTasks(name="addtask",method="post",action="/addtask")
+              // Puts Space Between Content
               br(style='clear:both')
               h3(style='margin-bottom: 25px; text-align: center;') Task Form
+              // Lets us know it part of a form group
               .form-group
+                // set input to take input from user - Sets Task Name
                 input#inputTaskName.form-control(type='text', name='taskname', placeholder='Task Name', required='')
               .form-group
+                // set input to take input from user - Sets Task Desc
                 input#inputTaskDesc.form-control(type='text', name='taskdesc', placeholder='Task Desc', required='')
               .form-group
+                // set input to take input from user - Sets Task Completed 
                 input#inputTaskComp.form-control(type='text', name='taskcomp', placeholder='Completed ?', required='')
               .form-group
+                // set input to take input from user - Sets Task Assigned 
                 input#inputTaskAss.form-control(type='text', name='taskass', placeholder='Assigned ?', required='')
-              button#submit.btn.btn-primary.pull-right(type='submit', name='addtask') ADD NEW TASK
-              button.btn.btn-primary.pull-left() 
-                  a(style="color: #ffffff" href="/") CANCEL
+              button#submit.btn.btn-primary.pull-right(type='submit', name='addtask') ADD A NEW TASK
+          form(method="get", action="/tasks")
+            button.btn.btn-primary() CANCEL & GO BACK

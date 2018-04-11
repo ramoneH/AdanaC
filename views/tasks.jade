@@ -6,8 +6,8 @@ block content
             h1
                 Task List
             br
-            button.btn.btn-primary() 
-                a(style="color: #ffffff" href="/addtasks") ADD NEW TASK
+            form(method="get", action="/addtasks")
+                button.btn.btn-primary(type="submit") ADD A NEW TASK NOW
             br
             br
             .alert.alert-warning
@@ -33,10 +33,5 @@ block content
                         else
                             tr 
                                 td sorry no tasks
-
-
-
-            button.btn.btn-primary() 
-                a(style="color: #ffffff" href="/") HOME
-
-        // a(for tasked, p in tasks', [routerlink]="['/product-details', product.id]")
+            form(method="get", action="/")
+                button.btn.btn-primary(type="submit") HOME
