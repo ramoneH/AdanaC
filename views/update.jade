@@ -26,7 +26,7 @@ block content
               .form-group
                 // set input to take input from user - Sets Task Assigned
                 input#inputTaskAss.form-control(type='text', name='ass', placeholder='#{thisTask.ass}', required='')
-              button#submit.btn.btn-primary.pull-right(type='submit', name='updateTask') Update Task
+              button#submit.btn.btn-success.pull-right(type='submit', name='updateTask') Update Task
               
           form(method="get", action="/tasks")
-            button.btn.btn-primary() CANCEL & GO BACK
+            button.btn.btn-danger() CANCEL & GO BACK

@@ -1,13 +1,12 @@
 extends layout
 
 block content
-    div.container-fluid
+    div.container-fluid.col-md-6
         .alert.alert-info
-            h1
-                Task List
+            h1(style="text-align: center") OFFICIAL TASK LIST 
             br
             form(method="get", action="/addtasks")
-                button.btn.btn-primary(type="submit") ADD A NEW TASK NOW
+                button.btn.btn-success.pull-right(type="submit") ADD A NEW TASK NOW
             br
             br
             .alert.alert-warning
@@ -29,9 +28,9 @@ block content
                                 td= task.ass
                                 td
                                     form(method="delete", action="/deletetask/#{task._id}")
-                                        button.btn.btn-primary(type="submit") Delete Me
+                                        button.btn.btn-danger(type="submit") Delete Me
                         else
                             tr 
                                 td sorry no tasks
             form(method="get", action="/")
-                button.btn.btn-primary(type="submit") HOME
+                button.btn.btn-warning(type="submit") HOME

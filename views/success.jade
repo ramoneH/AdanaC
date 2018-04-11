@@ -1,10 +1,11 @@
 extends layout
 
 block content
-  .container-fluid
+  .container-fluid.col-md-6
     .alert-success
-      h1= message
-      p Go Back to #{title}
-      
-      form(method="get", action="/tasks")
-        button.btn.btn-primary(type="submit") BACK TO THE TASK LIST
+      div.alert(style="text-align: center")
+        h1= message
+        p GO BACK TO #{title}
+        
+        form(method="get", action="/tasks")
+          button.btn.btn-warning(type="submit") BACK TO THE TASK LIST

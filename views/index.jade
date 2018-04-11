@@ -4,7 +4,7 @@ block content
   // Set Column Width For Page
   .col-lg-5
     // CSS to Improve Look And Feel
-    div.container-fluid
+    div.container-fluid(style='text-align: center')
       .alert.alert-warning
         h1 - The One n Only Task Tracker -
         .alert.alert-info
@@ -16,4 +16,4 @@ block content
 
           // Add Button To Navigate To The List Of Tasks
           form(method="get", action="/tasks")
-              button.btn.btn-primary(type="submit") COMPLETE LIST OF TASKS
+              button.btn.btn-warning(type="submit") COMPLETE LIST OF TASKS
