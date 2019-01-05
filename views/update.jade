@@ -10,22 +10,37 @@ block content
             form#formUpdateTasks(name="updateTask",method="post",action="/updateTask/#{thisTask._id}")
               // Puts Space Between Content
               br(style='clear:both')
-              h3(style='margin-bottom: 25px; text-align: center;') Update Task Form
+              h3(style='margin-bottom: 25px; text-align: center;') Update User Form
               .form-group
                 // set input to show id from task - Views Task ID
                 input#inputTaskId.form-control(hidden='true', name='_id', value='#{thisTask._id}', disabled="true")
               .form-group
                 // set input to take input from user - Sets Task Name
-                input#inputTaskName.form-control(type='text', name='task', placeholder='#{thisTask.task}', required='')
+                input#inputTaskName.form-control(type='text', name='name', value='#{thisTask.name}' )
               .form-group
                 // set input to take input from user - Sets Task Desc
-                input#inputTaskDesc.form-control(type='text', name='desc', placeholder='#{thisTask.desc}', required='')
+                input#inputTaskDesc.form-control(type='text', name='address', value='#{thisTask.address}')
               .form-group
                 // set input to take input from user - Sets Task Completed 
-                input#inputTaskCom.form-control(type='text', name='comp', placeholder='#{thisTask.comp}', required='')
+                input#inputTaskCom.form-control(type='text', name='phone', value='#{thisTask.phone}')
               .form-group
                 // set input to take input from user - Sets Task Assigned
-                input#inputTaskAss.form-control(type='text', name='ass', placeholder='#{thisTask.ass}', required='')
+                input#inputTaskAss.form-control(type='text', name='age', value='#{thisTask.age}')
+              .form-group
+                // set input to show id from task - Views Task ID
+                input#inputTaskId.form-control(hidden='true', name='weight', value='#{thisTask.weight}')
+              .form-group
+                // set input to take input from user - Sets Task Name
+                input#inputTaskName.form-control(type='text', name='height', value='#{thisTask.height}')
+              .form-group
+                // set input to take input from user - Sets Task Desc
+                input#inputTaskDesc.form-control(type='text', name='sport', value='#{thisTask.sport}')
+              .form-group
+                // set input to take input from user - Sets Task Completed 
+                input#inputTaskCom.form-control(type='text', name='coach', value='#{thisTask.coach}')
+              .form-group
+                // set input to take input from user - Sets Task Assigned
+                input#inputTaskAss.form-control(type='text', name='coach2', value='#{thisTask.coach2}')
               button#submit.btn.btn-success.pull-right(type='submit', name='updateTask') Update Task
               
           form(method="get", action="/tasks")

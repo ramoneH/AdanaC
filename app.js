@@ -33,15 +33,19 @@ mongoose.connection.on('error', function() {
 });
 
 mongoose.connection.once('open', function() {
-    console.log("Successfully connected to the database");
+    console.log("Successfully connected to the database..........");
+    console.log("Loading.....................");
+    console.log("http://localhost:3000/");
+
+
 });
 // define a simple route
 app.get('/', function(req, res){
-  res.render('index', { title: 'Task Tracker App' });
+  res.render('index', { title: ' Tracker App' });
 });
 
 // Require Task routes
-require('./app/routes/task.routes.js')(app);
+require('./app/routes/user.routes.js')(app);
 
 // listen for requests
 app.listen(3001, function(){

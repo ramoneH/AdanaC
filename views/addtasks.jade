@@ -12,20 +12,44 @@ block content
             form#formAddTasks(name="addtask",method="post",action="/addtask")
               // Puts Space Between Content
               br(style='clear:both')
-              h3(style='margin-bottom: 25px; text-align: center;') Task Form
+              h3(style='margin-bottom: 25px; text-align: center;') User Form
               // Lets us know it part of a form group
               .form-group
                 // set input to take input from user - Sets Task Name
-                input#inputTaskName.form-control(type='text', name='taskname', placeholder='Task Name', required='')
+                input#inputUserName.form-control(type='text', name='name', placeholder='User Full Name', required='')
               .form-group
                 // set input to take input from user - Sets Task Desc
-                input#inputTaskDesc.form-control(type='text', name='taskdesc', placeholder='Task Desc', required='')
+                input#inputAddress.form-control(type='text', name='address', placeholder='Address')
               .form-group
                 // set input to take input from user - Sets Task Completed 
-                input#inputTaskComp.form-control(type='text', name='taskcomp', placeholder='Completed ?', required='')
+                input#inputPhone.form-control(type='number', name='phone', placeholder='Phone')
               .form-group
                 // set input to take input from user - Sets Task Assigned 
-                input#inputTaskAss.form-control(type='text', name='taskass', placeholder='Assigned ?', required='')
-              button#submit.btn.btn-success.pull-right(type='submit', name='addtask') ADD A NEW TASK
+                input#inputAge.form-control(type='number', name='age', placeholder='Age ?')
+              .form-group
+                // set input to take input from user - Sets Task Name
+                input#inputWeight.form-control(type='number', name='weight', placeholder='Weight')
+              .form-group
+                // set input to take input from user - Sets Task Desc
+                input#inputHeight.form-control(type='number', name='height', placeholder='Height')
+              .form-group
+                // set input to take input from user - Sets Task Completed 
+                input#inputSport.form-control(type='text', name='sport', placeholder='Sport ?')
+              .form-group
+                // set input to take input from user - Sets Task Assigned 
+                input#inputCoach.form-control(type='text', name='coach', placeholder='Coach Name ?')
+              .form-group
+                // set input to take input from user - Sets Task Name
+                input#inputCoach2.form-control(type='text', name='coach2', placeholder='Second Coach Name ?')
+              .form-group
+                // set input to take input from user - Sets Task Desc
+                input#inputPname.form-control(type='text', name='pname', placeholder='Parent Name')
+              .form-group
+                // set input to take input from user - Sets Task Completed 
+                input#inputPname2.form-control(type='text', name='pname2', placeholder='Second Parent Name ?')
+              .form-group
+                // set input to take input from user - Sets Task Assigned 
+                input#inputPnumb.form-control(type='number', name='pnumb', placeholder='Parent Phone ?')
+              button#submit.btn.btn-success.pull-right(type='submit', name='addtask') ADD A NEW User
           form(method="get", action="/tasks")
             button.btn.btn-warning() CANCEL & GO BACK
